@@ -125,10 +125,26 @@ class OneTracker extends Contract {
     /* (END) METHODS - To query for all available data */
 
     /* (START) Ownership change methods */
+    // Change ownership of vaccine batch
+    async changeVaccineBatchOwner(ctx, vaccineBatchId, newOwner) {
+        console.info('============= START : changeVaccineBatchOwner ===========');
+
+        const vaccineBatchAsBytes = await ctx.stub.getState(vaccineBatchId); // get the vaccineBatch from chaincode state
+        if (!vaccineBatchAsBytes || vaccineBatchAsBytes.length === 0) {
+            throw new Error(`${vaccineBatchId} does not exist`);
+        }
+        const vaccineBatch = JSON.parse(vaccineBatchAsBytes.toString());
+        vaccineBatch.owner = newOwner;
+
+        await ctx.stub.putState(vaccineBatchId, Buffer.from(JSON.stringify(vaccineBatch)));
+        console.info('============= END : changeVaccineBatchOwner ===========');
+    }
+
+    // Change ownership of individual vaccine
     async changeVaccineOwner(ctx, vaccineId, newOwner) {
         console.info('============= START : changeVaccineOwner ===========');
 
-        const vaccineAsBytes = await ctx.stub.getState(vaccineId); // get the car from chaincode state
+        const vaccineAsBytes = await ctx.stub.getState(vaccineId); // get the vaccine from chaincode state
         if (!vaccineAsBytes || vaccineAsBytes.length === 0) {
             throw new Error(`${vaccineId} does not exist`);
         }

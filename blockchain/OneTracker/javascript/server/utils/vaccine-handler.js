@@ -25,10 +25,35 @@ var getAllVaccinesByBatchId = async(contract, vaccineBatchId) => {
         }
     }
     return(response);
-
 };
+
+var changeVaccineOwner = async(contract, vaccineId, newOwner) => {
+    await contract.submitTransaction('changeVaccineOwner',
+            vaccineId,
+            newOwner
+    );
+}
+
+var changeVaccineBatchOwner = async(contract, vaccineBatchId, newOwner) => {
+    let vaccinesByBatchId = await getAllVaccinesByBatchId(contract, vaccineBatchId.replace("VACBATCH", ""));
+    var i = 0;
+    console.log("ALL Vaccines to be updated: ", vaccinesByBatchId);
+    for(i=0;i<vaccinesByBatchId.vaccines.length;i++){
+        console.log("VACCINE ID: ", vaccinesByBatchId.vaccines[i]);
+        await changeVaccineOwner(contract,
+            vaccinesByBatchId.vaccines[i],
+            newOwner
+        );
+    }
+    await contract.submitTransaction('changeVaccineBatchOwner',
+            vaccineBatchId,
+            newOwner
+    );
+}
 
 module.exports = {
     getAllVaccinesByBatchId,
-    createVaccines
+    createVaccines,
+    changeVaccineOwner,
+    changeVaccineBatchOwner
 };

@@ -2,8 +2,7 @@ var express = require('express');
 var router = express.Router();
 const path = require('path');
 let _ = require('lodash');
-var { generate_uid } = require("../utils/uid-generator");
-var { createVaccines, getAllVaccinesByBatchId } = require("../utils/vaccine-handler");
+var { createVaccines, getAllVaccinesByBatchId, changeVaccineOwner, changeVaccineBatchOwner } = require("../utils/vaccine-handler");
 var { getContract } = require("../utils/contract");
 
 /* GET Fetch all vaccine batches */
@@ -28,16 +27,30 @@ router.patch('/changeVaccineOwner', async(req,res) => {
         let contract = await getContract();
         let vaccineData = _.pick(req.body, ['vaccineId','newOwner']);
         console.log("Vaccine Data received: ", vaccineData);
-        await contract.submitTransaction('changeVaccineOwner',
-            vaccineData.vaccineId,
-            vaccineData.newOwner
-        );
+        await changeVaccineOwner(contract, vaccineData.vaccineId, vaccineData.newOwner);
         res.status(200).json({code:0,
             message : "Successfully changed ownership of vaccine"
-        })
+        });
     } catch(error){
         res.status(400).json({code : 1, 
             message : "Error while changing ownership of vaccine",
+            error: error});
+    }
+});
+
+/* PATCH Change ownership of vaccine batch */
+router.patch('/changeVaccineBatchOwner', async(req,res) => {
+    try{
+        let contract = await getContract();
+        let vaccineBatchData = _.pick(req.body, ['vaccineBatchId','newOwner']);
+        console.log("Vaccine Batch Data received: ", vaccineBatchData);
+        await changeVaccineBatchOwner(contract, vaccineBatchData.vaccineBatchId, vaccineBatchData.newOwner);
+        res.status(200).json({code:0,
+            message : "Successfully changed ownership of vaccine batch"
+        });
+    } catch(error){
+        res.status(400).json({code : 1, 
+            message : "Error while changing ownership of vaccine batch",
             error: error});
     }
 });

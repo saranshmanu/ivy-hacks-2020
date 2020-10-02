@@ -7,7 +7,7 @@ const cors = require('cors');
 
 var manufacturerRouter = require('./routes/manufacturers');
 var vaccineRouter = require('./routes/vaccines');
-// var adminRouter = require('./routes/admin');
+var usersRouter = require('./routes/users');
 dotenv.config();
 
 let app = express();
@@ -22,7 +22,7 @@ const PORT = 3000;
 
 app.use('/manufacturers', manufacturerRouter);
 app.use('/vaccines', vaccineRouter);
-// app.use('/admin', adminRouter);
+app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
