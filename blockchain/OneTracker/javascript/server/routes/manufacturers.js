@@ -49,12 +49,13 @@ router.get('/fetchAllManufacturers', async(req,res) => {
 router.post('/createVaccineBatch', async(req,res) => {
     let vaccineBatchData = _.pick(req.body, ['qty','manufacturerId','distributorId','manufactureDate','expiryDate']);
     console.log("Vaccine Batch Data received: ", vaccineBatchData);
-    console.log("UID: ", generate_uid());
+    let vaccineBatchId = generate_uid();
+    console.log("Vaccine Batch UID: ", vaccineBatchId);
     //Get smart contract
     let contract = await getContract();
     // Create vaccine batch entry, along with vaccines
     const vaccineBatchResult = await contract.submitTransaction('createVaccineBatch',
-                    generate_uid(),
+                    vaccineBatchId,
                     vaccineBatchData.qty,
                     vaccineBatchData.manufacturerId,
                     vaccineBatchData.distributorId,
