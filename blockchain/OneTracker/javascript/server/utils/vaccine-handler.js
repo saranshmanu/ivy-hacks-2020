@@ -27,6 +27,20 @@ var getAllVaccinesByBatchId = async(contract, vaccineBatchId) => {
     return(response);
 };
 
+var getVaccineById = async(contract, vaccineId) => {
+    let allVaccines = JSON.parse(await contract.evaluateTransaction('queryAllVaccines'));
+    var response = {};
+    for (var i = 0; i < allVaccines.length; i++) {
+        var vaccine = allVaccines[i];
+        if(vaccine.Key === vaccineId){
+            console.log("VACCINE : ", vaccine);
+            response.vaccine = vaccine;
+            break;
+        }
+    }
+    return(response);
+};
+
 var changeVaccineOwner = async(contract, vaccineId, newOwner) => {
     await contract.submitTransaction('changeVaccineOwner',
             vaccineId,
@@ -55,5 +69,6 @@ module.exports = {
     getAllVaccinesByBatchId,
     createVaccines,
     changeVaccineOwner,
-    changeVaccineBatchOwner
+    changeVaccineBatchOwner,
+    getVaccineById
 };
