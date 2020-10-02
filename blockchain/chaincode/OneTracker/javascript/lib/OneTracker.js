@@ -74,14 +74,6 @@ class OneTracker extends Contract {
         return({vaccineBatchId : vaccineBatchId});
     }
 
-    /* METHODS - To query for specific data */
-    //Method to find all vaccines in a batch
-    async findVaccineByBatchId(ctx, vaccineBatchId){
-        const VACCINE_SIGNATURE = "VACCINE";
-        let allVaccines = await this.queryAllData(ctx, VACCINE_SIGNATURE);
-        console.info("ALL VACCINES: ", allVaccines);
-    }
-
     /* METHODS - To query for all available data */
     //Single method where it searches for keys starting with specified prefix
     async queryAllData(ctx, prefix) {
@@ -132,19 +124,21 @@ class OneTracker extends Contract {
     }
     /* (END) METHODS - To query for all available data */
 
-    async changeCarOwner(ctx, carNumber, newOwner) {
-        console.info('============= START : changeCarOwner ===========');
+    /* (START) Ownership change methods */
+    async changeVaccineOwner(ctx, vaccineId, newOwner) {
+        console.info('============= START : changeVaccineOwner ===========');
 
-        const carAsBytes = await ctx.stub.getState(carNumber); // get the car from chaincode state
-        if (!carAsBytes || carAsBytes.length === 0) {
-            throw new Error(`${carNumber} does not exist`);
+        const vaccineAsBytes = await ctx.stub.getState(vaccineId); // get the car from chaincode state
+        if (!vaccineAsBytes || vaccineAsBytes.length === 0) {
+            throw new Error(`${vaccineId} does not exist`);
         }
-        const car = JSON.parse(carAsBytes.toString());
-        car.owner = newOwner;
+        const vaccine = JSON.parse(vaccineAsBytes.toString());
+        vaccine.owner = newOwner;
 
-        await ctx.stub.putState(carNumber, Buffer.from(JSON.stringify(car)));
-        console.info('============= END : changeCarOwner ===========');
+        await ctx.stub.putState(vaccineId, Buffer.from(JSON.stringify(vaccine)));
+        console.info('============= END : changeVaccineOwner ===========');
     }
+    /* (END) Ownership change methods */
 
 }
 

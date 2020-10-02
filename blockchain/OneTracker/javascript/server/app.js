@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 
 var manufacturerRouter = require('./routes/manufacturers');
-// var courseRouter = require('./routes/course');
+var vaccineRouter = require('./routes/vaccines');
 // var adminRouter = require('./routes/admin');
 dotenv.config();
 
@@ -21,7 +21,7 @@ app.use(cors());
 const PORT = 3000;
 
 app.use('/manufacturers', manufacturerRouter);
-// app.use('/course', courseRouter);
+app.use('/vaccines', vaccineRouter);
 // app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
