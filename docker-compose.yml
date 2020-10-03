@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  backend:
+    build: backend
+    image: one-tracker/backend
+    environment:
+      - MONGODB_URL=mongodb://mongodb:27017/admin
+      - JWT_SECRET=hello_world
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongodb
+    networks:
+      - node-network
+
+  mongodb:
+    image: mongo:4.2.1-bionic
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./database/:/data/db
+    networks:
+      - node-network
+
+  frontend:
+    build: frontend
+    image: one-tracker/frontend
+    ports:
+      - '3001:3001'
+    networks:
+      - node-network
+
+volumes:
+  dbdata:
+
+networks:
+  node-network:
+    driver: bridge

@@ -1,0 +1,133 @@
+{
+	"variables": [],
+	"info": {
+		"name": "IvyHacks 2020 Oct 1-4",
+		"_postman_id": "f923090e-5073-b751-0957-620ecf559202",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create vaccineBatch",
+			"request": {
+				"url": "http://157.245.216.42:3000/manufacturers/createVaccineBatch",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"qty\": \"2\",\n\t\"manufacturerId\" : \"qwertyuiopasdfghjklzxcvbnm\",\n\t\"distributorId\" : \"laksjdhfg\",\n\t\"manufactureDate\" : \"01-Oct-2020\",\n\t\"expiryDate\" : \"02-Dec-2020\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch all Vaccine Batches",
+			"request": {
+				"url": "http://157.245.216.42:3000/vaccines/fetchAllVaccineBatches",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch all vaccines",
+			"request": {
+				"url": "http://157.245.216.42:3000/vaccines/fetchAllVaccines",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Change vaccine owner",
+			"request": {
+				"url": "http://157.245.216.42:3000/vaccines/changeVaccineOwner",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"vaccineId\":\"VACCINE0c27d942-272a-4f8f-a409-8cd7933736a4\",\n\t\"newOwner\":\"ME\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Change Vaccine Batch Owner",
+			"request": {
+				"url": "http://157.245.216.42:3000/vaccines/changeVaccineBatchOwner",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"vaccineBatchId\":\"VACBATCHa6bd943b-732b-4724-a61c-c79c70d108f2\",\n\t\"newOwner\":\"ME\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Check Vaccine Validity",
+			"request": {
+				"url": "http://157.245.216.42:3000/users/checkVaccineValid",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"vaccineId\": \"VACCINE0c27d942-272a-4f8f-a409-8cd7933736a4\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Check if Patient is Vaccinated",
+			"request": {
+				"url": "http://157.245.216.42:3000/users/checkIfVaccinated",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"patientId\" : \"ME\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

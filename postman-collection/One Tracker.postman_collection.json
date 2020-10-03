@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "da37d8a5-7d4b-48e7-9cc9-f81806a41cd1",
+		"name": "One Tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"saranshmanu-d@yahoo.co.in\",\n    \"password\": \"manu1998\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role\": \"distributor\",\n    \"name\": \"Saransh Mittal\",\n    \"email\": \"saranshmanu-2@yahoo.co.in\",\n    \"password\": \"manu1998\",\n    \"state\": \"Delhi, India\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Distributor/ Patient",
+			"item": [
+				{
+					"name": "User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Zjc0YjIyYWU1MzU4MzllMTEzMzdhOTUiLCJpYXQiOjE2MDE1NTU4OTksImV4cCI6MTYwMTU1NzY5OX0.2MGio7VLnoNBKkzS0OW4LG0GyP3h90GOEyKMOCXnV3o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/v1/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Place Vaccine Batch Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Zjc0YjIyYWU1MzU4MzllMTEzMzdhOTUiLCJpYXQiOjE2MDE0OTE4MTQsImV4cCI6MTYwMTQ5MzYxNH0.tMNgmB2OLPkqbBBCBcqmov45rHOyk48RjaR7fU_zaEU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"manufacturer\": \"5f74a0f98704bf9ab6a8e105\",\n    \"quantity\": 1001\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/users/order",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vaccinate Patient",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1Zjc0YjIyYWU1MzU4MzllMTEzMzdhOTUiLCJpYXQiOjE2MDE1NTQzNTAsImV4cCI6MTYwMTU1NjE1MH0.pgSUyQNVfuo3gul0p8Wbe23AZOVv8pmYPNyyShDI7jI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"patient\": \"5f7491448dd6f89543c044aa\",\n    \"manufacturer\": \"5f74a0f98704bf9ab6a8e105\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/users/vaccinate",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users",
+								"vaccinate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Manufacturer",
+			"item": [
+				{
+					"name": "Approve Manufacturer Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"manufacturer\": \"5f771b71b6e0de001d6a3973\",\n    \"order\": \"5f772029b6e0de001d6a3975\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/manufacturer/order/approve",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"manufacturer",
+								"order",
+								"approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Manufacturer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vaccineName\": \"AstraZeneca\",\n    \"name\": \"The University of Oxford\",\n    \"description\": \"Replication-deficient viral vector vaccine (adenovirus from chimpanzees)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/manufacturer",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"manufacturer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Manufacturer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"nil\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/manufacturer/5f74a0f98704bf9ab6a8e105",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"manufacturer",
+								"5f74a0f98704bf9ab6a8e105"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vaccine Manufacturer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/manufacturer",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"manufacturer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Manufacturer Orders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"manufacturer\": \"5f771b71b6e0de001d6a3973\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/manufacturer/order",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"manufacturer",
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Dashboard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/dashboard",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"dashboard"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

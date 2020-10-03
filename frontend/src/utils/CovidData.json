@@ -1,0 +1,243 @@
+[
+    {
+        "name": "Tamil Nadu, India",
+        "latitude": 11.059821,
+        "longitude": 78.387451,
+        "vaccinated": 0,
+        "total-cases": 603290,
+        "active-cases": 46369,
+        "population": 77841267
+    },{
+        "name": "Arunachal Pradesh, India",
+        "latitude": 28.2180,
+        "longitude": 94.7278,
+        "vaccinated": 0,
+        "total-cases": 10020,
+        "active-cases": 2955,
+        "population": 1570458
+    },{
+        "name": "Nagaland, India",
+        "latitude": 26.1584,
+        "longitude": 94.5624,
+        "vaccinated": 0,
+        "total-cases": 6244,
+        "active-cases": 1078,
+        "population": 2249695
+    },{
+        "name": "Manipur, India",
+        "latitude": 24.6637,
+        "longitude": 93.9063,
+        "vaccinated": 0,
+        "total-cases": 11111,
+        "active-cases": 2402,
+        "population": 3091545
+    },{
+        "name": "Mizoram, India",
+        "latitude": 23.1645,
+        "longitude": 92.9376,
+        "vaccinated": 0,
+        "total-cases": 2018,
+        "active-cases": 297,
+        "population": 1239244
+    },{
+        "name": "Meghalaya, India",
+        "latitude": 25.4670,
+        "longitude": 91.3662,
+        "vaccinated": 0,
+        "total-cases": 5802,
+        "active-cases": 1750,
+        "population": 3366710
+    },{
+        "name": "Telangana, India",
+        "latitude": 17.123184,
+        "longitude": 79.208824,
+        "vaccinated": 0,
+        "total-cases": 193600,
+        "active-cases": 29058,
+        "population": 39362732
+    },{
+        "name": "Andhra Pradesh, India",
+        "latitude": 15.9129,
+        "longitude": 79.7400,
+        "vaccinated": 0,
+        "total-cases": 700235,
+        "active-cases": 259006,
+        "population": 53903393
+    },{
+        "name": "Sikkim, India",
+        "latitude": 27.5330,
+        "longitude": 88.5122,
+        "vaccinated": 0,
+        "total-cases": 2969,
+        "active-cases": 635,
+        "population": 690251
+    },{
+        "name": "Uttarakhand, India",
+        "latitude": 30.0668,
+        "longitude": 79.0193,
+        "vaccinated": 0,
+        "total-cases": 49248,
+        "active-cases": 8544,
+        "population": 11250858
+    },{
+        "name": "Ladakh, India",
+        "latitude": 34.152588,
+        "longitude": 77.577049,
+        "vaccinated": 0,
+        "total-cases": 4269,
+        "active-cases": 1064,
+        "population": 289023
+    },{
+        "name": "Delhi, India",
+        "latitude": 28.6643,
+        "longitude": 77.2167,
+        "vaccinated": 0,
+        "total-cases": 282752,
+        "active-cases": 26738,
+        "population": 18710922
+    },{
+        "name": "Goa, India",
+        "latitude": 15.496777,
+        "longitude": 73.827827,
+        "vaccinated": 0,
+        "total-cases": 33942,
+        "active-cases": 4977,
+        "population": 1586250
+    },{
+        "name": "Bihar, India",
+        "latitude": 25.2010,
+        "longitude": 85.5165,
+        "vaccinated": 0,
+        "total-cases": 184276,
+        "active-cases": 12502,
+        "population": 124799926
+    },{
+        "name": "Jharkhand, India",
+        "latitude": 23.4409,
+        "longitude": 85.1478,
+        "vaccinated": 0,
+        "total-cases": 84664,
+        "active-cases": 11482,
+        "population": 38593948
+    },{
+        "name": "Madhya Pradesh, India",
+        "latitude": 23.473324,
+        "longitude": 77.947998,
+        "vaccinated": 0,
+        "total-cases": 130088,
+        "active-cases": 20473,
+        "population": 85358965
+    },{
+        "name": "Chhattisgarh, India",
+        "latitude": 21.295132,
+        "longitude": 81.828232,
+        "vaccinated": 0,
+        "total-cases": 116153,
+        "active-cases": 30468,
+        "population": 29436231
+    },{
+        "name": "Haryana, India",
+        "latitude": 29.238478,
+        "longitude": 76.431885,
+        "vaccinated": 0,
+        "total-cases": 129912,
+        "active-cases": 13472,
+        "population": 28204692
+    },{
+        "name": "Maharashtra, India",
+        "latitude": 19.601194,
+        "longitude": 75.552979,
+        "vaccinated": 0,
+        "total-cases": 1400922,
+        "active-cases": 259006,
+        "population": 123144223
+    },{
+        "name": "Tripura, India",
+        "latitude": 23.745127,
+        "longitude": 91.746826,
+        "vaccinated": 0,
+        "total-cases": 260063,
+        "active-cases": 5691,
+        "population": 4169794
+    },{
+        "name": "Karnataka, India",
+        "latitude": 15.317277,
+        "longitude": 75.713890,
+        "vaccinated": 0,
+        "total-cases": 611837,
+        "active-cases": 110412,
+        "population": 67562686
+    },{
+        "name": "Kerala, India",
+        "latitude": 10.850516,
+        "longitude": 76.271080,
+        "vaccinated": 0,
+        "total-cases": 204242,
+        "active-cases": 72339,
+        "population": 35699443
+    },{
+        "name": "Uttar Pradesh, India",
+        "latitude": 28.207609,
+        "longitude": 79.826660,
+        "vaccinated": 0,
+        "total-cases": 403101,
+        "active-cases": 50378,
+        "population": 237882725
+    },{
+        "name": "Assam, India",
+        "latitude": 26.244156,
+        "longitude": 92.537842,
+        "vaccinated": 0,
+        "total-cases": 182396,
+        "active-cases": 34163,
+        "population": 35607039
+    },{
+        "name": "West Bengal, India",
+        "latitude": 22.978624,
+        "longitude": 87.747803,
+        "vaccinated": 0,
+        "total-cases": 260324,
+        "active-cases": 26552,
+        "population": 99609303
+    },{
+        "name": "Gujarat, India",
+        "latitude": 22.309425,
+        "longitude": 72.136230,
+        "vaccinated": 0,
+        "total-cases": 138744,
+        "active-cases": 16616,
+        "population": 63872399
+    },{
+        "name": "Odisha, India",
+        "latitude": 20.940920,
+        "longitude": 84.803467,
+        "vaccinated": 0,
+        "total-cases": 222734,
+        "active-cases": 31742,
+        "population": 46356334
+    },{
+        "name": "Rajasthan, India",
+        "latitude": 27.391277,
+        "longitude": 73.432617,
+        "vaccinated": 0,
+        "total-cases": 137485,
+        "active-cases": 20807,
+        "population": 81032689
+    },{
+        "name": "Himachal Pradesh, India",
+        "latitude": 32.084206,
+        "longitude": 77.571167,
+        "vaccinated": 0,
+        "total-cases": 15219,
+        "active-cases": 1884,
+        "population": 7451955
+    },{
+        "name": "Andaman and Nicobar Islands, India",
+        "latitude": 12.5610,
+        "longitude": 92.8178,
+        "vaccinated": 0,
+        "total-cases": 3848,
+        "active-cases": 172,
+        "population": 417036
+    }
+]
