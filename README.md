@@ -1,4 +1,4 @@
-# IvyHacks 2020, Co-CAX
+# IvyHacks 2020, Co-VAX
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
