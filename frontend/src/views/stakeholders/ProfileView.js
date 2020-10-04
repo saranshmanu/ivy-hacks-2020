@@ -1,37 +1,27 @@
 import React from 'react';
 import { Container, Row, Col } from 'shards-react';
-import PageTitle from '../../components/common/PageTitle';
-import NotificationCenter from '../../components/NotificationCenter';
-import VaccinationHistory from '../../components/VaccinationHistory';
-import ProfileCard from '../../components/ProfileCard';
+import { PageTitle, NotificationCenter, VaccinationHistory, ProfileCard } from '../../components';
 import { Dispatcher, Constants, AuthStore, PatientStore } from "../../flux";
 
 class DashboardView extends React.Component {
 
 	render() {
-        const getHeading = (heading) => {
-            return (
-                <div noGutters className="page-header py-4">
-                    <PageTitle title={heading} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
-                </div>
-            )
-        }
 		return (
 			<Container fluid className="main-content-container pb-4">
 				<Row>
                     <Col lg="2"></Col>
 					<Col lg="4">
-                        {getHeading('Patient')}
+                        <PageTitle title={'Patient'} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
                         <ProfileCard name={this.state.name} vaccinated={this.state.vaccinated} signature={this.state.signature} />
                     </Col>
                     <Col lg="4">
                         <Row>
                             <Col lg="12">
-                                {getHeading('Notification Center')}
+                                <PageTitle title={'Notification Center'} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
                                 <NotificationCenter data={this.state.notifications} />
                             </Col>
                             <Col lg="12">
-                                {getHeading('Vaccination History')}
+                                <PageTitle title={'Vaccination History'} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
                                 <VaccinationHistory data={this.state.history} />
                             </Col>
                         </Row>

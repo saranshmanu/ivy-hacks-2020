@@ -1,12 +1,7 @@
 import React from 'react';
 import millify from 'millify';
 import { Container, Row, Col, Button, Modal, ModalBody, ModalHeader, ListGroupItem, ListGroup } from "shards-react";
-import PageTitle from '../../components/common/PageTitle';
-import VaccinationTimeline from '../../components/insights/VaccinationTimeline';
-import VaccineManufacturer from '../../components/insights/VaccineManufacturer';
-import VaccineRegionDistributionTable from '../../components/insights/VaccineRegionDistributionTable';
-import DailyInsights from '../../components/insights/DailyInsights';
-import MapSection from '../../components/insights/MapSection';
+import { PageTitle, VaccinationTimeline, VaccineManufacturer, VaccineRegionDistributionTable, DailyInsights, MapSection } from '../../components';
 import { DashboardStore } from "../../flux";
 
 class DashboardView extends React.Component {
@@ -36,13 +31,6 @@ class DashboardView extends React.Component {
 	togglePredictionModal = () => this.setState({ predictionModal: !this.state.predictionModal })
 
 	render() {
-		const getHeading = (heading) => {
-            return (
-                <div noGutters className="page-header py-4">
-                    <PageTitle title={heading} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
-                </div>
-            )
-        }
 		return (
 			<Container fluid className="main-content-container pb-4">
 				<Modal size="lg" open={this.state.predictionModal} toggle={this.togglePredictionModal}>
@@ -79,18 +67,18 @@ class DashboardView extends React.Component {
 					<Col lg="5">
 						<Row>
 							<Col lg="12">
-								{getHeading('Heatmap')}
+								<PageTitle title={'Heatmap'} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
 								<MapSection data={this.state.locations} />
 								<Button onClick={this.togglePredictionModal} size="lg" style={{width: '100%'}}>
 									{'Get Predictions'}
 								</Button>
 							</Col>
 							<Col lg="12">
-								{getHeading('Vaccination Timeline')}
+								<PageTitle title={'Vaccination Timeline'} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
 								<VaccinationTimeline days={this.state.timelineTotalDays} data={this.state.timeline} />
 							</Col>
 							<Col lg="12">
-								{getHeading('Vaccine Manufacturer')}
+								<PageTitle title={'Vaccine Manufacturer'} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
 								<VaccineManufacturer data={this.state.vaccines} />
 							</Col>
 						</Row>
@@ -98,11 +86,11 @@ class DashboardView extends React.Component {
 					<Col lg="5">
 						<Row>
 							<Col lg="12">
-								{getHeading('Daily Insights')}
+								<PageTitle title={'Daily Insights'} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
 								<DailyInsights vaccinatedTotal={this.state.vaccinatedTotal} vaccinatedToday={this.state.vaccinatedToday} />
 							</Col>
 							<Col lg="12">
-								{getHeading('Region Distribution')}
+								<PageTitle title={'Region Distribution'} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
 								<VaccineRegionDistributionTable data={this.state.locations} />
 							</Col>
 						</Row>

@@ -1,10 +1,10 @@
 import Constants from "./constants";
 import Dispatcher from "./dispatcher";
-import Store from "./store";
-import AuthStore from "./AuthStore";
-import PatientStore from "./PatientStore";
-import DistributorStore from "./DistributorStore";
-import DashboardStore from './DashboardStore';
+import Store from "./stores/store";
+import AuthStore from "./stores/AuthStore";
+import PatientStore from "./stores/PatientStore";
+import DistributorStore from "./stores/DistributorStore";
+import DashboardStore from './stores/DashboardStore';
 
 export {
   Constants,

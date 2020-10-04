@@ -1,56 +1,13 @@
 import React from 'react';
 import States from '../../utils/CovidData.json';
-import {
-	Card,
-	CardHeader,
-	ListGroup,
-	ListGroupItem,
-	Row,
-	Col,
-	Form,
-	FormInput,
-	Button,
-	Container,
-	Alert,
-	FormSelect
-} from 'shards-react';
-import PageTitle from "../../components/common/PageTitle";
+import { Card, CardHeader, ListGroup, ListGroupItem, Row, Col, Form, FormInput, Button, Container, Alert, FormSelect } from 'shards-react';
 import { Dispatcher, Constants, AuthStore } from "../../flux";
 import { Link } from 'react-router-dom';
 
 class RegisterView extends React.Component {
-	
-	constructor(props) {
-		super(props);
-		this.state = {
-			firstName: '',
-			lastName: '',
-			email: '',
-			password: '',
-			confirmPasswordTextboxDanger: false,
-			alertShow: false,
-			alertMessage: '',
-			location: ''
-		};
-		this.confirmPasswordHandle = this.confirmPasswordHandle.bind(this);
-		this.onSuccessfulRegister = this.onSuccessfulRegister.bind(this);
-		this.registerRequest = this.registerRequest.bind(this);
-	}
 
 	confirmPasswordHandle(e) {
 		this.setState({ confirmPasswordTextboxDanger: e.target.value !== '' && e.target.value !== this.state.password })
-	}
-
-	componentWillMount() {
-		AuthStore.addRegisterListener(this.onSuccessfulRegister);
-	}
-
-	componentDidMount() {
-		this.setState({ location: States[0].name })
-	}
-	
-	componentWillUnmount() {
-		AuthStore.removeRegisterListener(this.onSuccessfulRegister);
 	}
 
 	onSuccessfulRegister() {
@@ -76,9 +33,6 @@ class RegisterView extends React.Component {
 	render() {
 		return (
 			<Container fluid className="p-4">
-				<Row noGutters className="page-header py-4">
-					<PageTitle title="One-Tracker" subtitle="Lets get started" md="6" className="ml-sm-auto mr-sm-auto" />
-				</Row>
 				<Row>
 					<Col lg="6" className="ml-sm-auto mr-sm-auto">
 						<Card small className="mb-4">
@@ -91,17 +45,13 @@ class RegisterView extends React.Component {
 									<Row form>
 										<Col md="6" className="form-group">
 											<label htmlFor="feFirstName">First Name</label>
-											<FormInput
-												id="feFirstName"
-												placeholder="John"
+											<FormInput id="feFirstName" placeholder="John"
 												onChange={(e) => this.setState({ firstName: e.target.value })}
 											/>
 										</Col>
 										<Col md="6" className="form-group">
 											<label htmlFor="feLastName">Last Name</label>
-											<FormInput
-												id="feLastName"
-												placeholder="Doe"
+											<FormInput id="feLastName" placeholder="Doe"
 												onChange={(e) => this.setState({ lastName: e.target.value })}
 											/>
 										</Col>
@@ -109,11 +59,7 @@ class RegisterView extends React.Component {
 										<Row form>
 											<Col md="12" className="form-group">
 												<label htmlFor="feEmail">Email</label>
-												<FormInput
-													type="email"
-													id="feEmail"
-													value={this.state.email}
-													placeholder="admin@one-tracker.ai"
+												<FormInput type="email" id="feEmail" value={this.state.email} placeholder="admin@one-tracker.ai"
 													onChange={(e) => this.setState({ email: e.target.value })}
 													autoComplete="email"
 												/>
@@ -130,21 +76,15 @@ class RegisterView extends React.Component {
 										<Row form>
 											<Col md="6" className="form-group">
 												<label htmlFor="fePassword">Password</label>
-												<FormInput
-													type="password"
-													id="fePassword"
-													placeholder="****************"
+												<FormInput type="password" id="fePassword" placeholder="****************"
 													onChange={(e) => this.setState({ password: e.target.value })}
 													autoComplete="current-password"
 												/>
 											</Col>
 											<Col md="6" className="form-group">
 												<label htmlFor="fePassword">Confirm Password</label>
-												<FormInput
+												<FormInput type="password" id="feConfirmPassword" placeholder="****************"
 													invalid={this.state.confirmPasswordTextboxDanger}
-													type="password"
-													id="feConfirmPassword"
-													placeholder="****************"
 													onChange={this.confirmPasswordHandle}
 													autoComplete="current-password"
 												/>
@@ -171,6 +111,35 @@ class RegisterView extends React.Component {
 			</Container>
 
 		)
+	}
+
+	componentWillMount() {
+		AuthStore.addRegisterListener(this.onSuccessfulRegister);
+	}
+
+	componentDidMount() {
+		this.setState({ location: States[0].name })
+	}
+	
+	componentWillUnmount() {
+		AuthStore.removeRegisterListener(this.onSuccessfulRegister);
+	}
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			firstName: '',
+			lastName: '',
+			email: '',
+			password: '',
+			confirmPasswordTextboxDanger: false,
+			alertShow: false,
+			alertMessage: '',
+			location: ''
+		};
+		this.confirmPasswordHandle = this.confirmPasswordHandle.bind(this);
+		this.onSuccessfulRegister = this.onSuccessfulRegister.bind(this);
+		this.registerRequest = this.registerRequest.bind(this);
 	}
 }
 

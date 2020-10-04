@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'shards-react';
-import SmallStats from '../../components/common/SmallStats';
+import SmallStats from '../../components/insights/SmallStats';
 
 class DailyInsights extends React.Component {
 	constructor() {

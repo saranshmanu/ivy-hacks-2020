@@ -1,10 +1,5 @@
 import React from 'react';
-import Scanner from '../../components/Scanner'
-import PageTitle from '../../components/common/PageTitle';
-import DistributorCard from '../../components/DistributorCard';
-import ScannedHistory from '../../components/ScannedHistory';
-import OrderHistory from '../../components/OrderHistory';
-import VaccineInventory from '../../components/VaccineInventory';
+import { Scanner, PageTitle, DistributorCard, ScannedHistory, OrderHistory, VaccineInventory } from '../../components';
 import { Container, Row, Col, Modal, ModalBody, ModalHeader, FormSelect, Button, Form, FormGroup, FormInput, Alert } from "shards-react";
 import { Dispatcher, Constants, AuthStore, DistributorStore } from "../../flux";
 
@@ -12,7 +7,6 @@ class DistributorView extends React.Component {
 
 	toggleScannerModal = () => this.setState({ openScannerModal: !this.state.openScannerModal })
 	toggleRequestVaccineModal = () => this.setState({ openRequestVaccineModal: !this.state.openRequestVaccineModal })
-
 	placeVaccineOrder = () => {
 		Dispatcher.dispatch({ 
 			actionType: Constants.PLACE_VACCINE_ORDER,
@@ -23,7 +17,6 @@ class DistributorView extends React.Component {
 			} 
 		});
 	}
-
 	setVaccineSignature = (vaccineSignature) => {
 		if(!vaccineSignature) return
 		this.setState({
@@ -31,7 +24,6 @@ class DistributorView extends React.Component {
 			step: 1,
 		})
 	}
-
 	vaccinatePatient = (patientSignature) => {
 		if(!patientSignature) return
 		Dispatcher.dispatch({ 
@@ -46,13 +38,6 @@ class DistributorView extends React.Component {
 	}
 
 	render() {
-		const getHeading = (heading) => {
-            return (
-                <div noGutters className="page-header py-4">
-                    <PageTitle title={heading} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
-                </div>
-            )
-		}
 		const vaccineScanner = () => {
 			return (
 				<div>
@@ -122,11 +107,11 @@ class DistributorView extends React.Component {
 					<Col lg="4">
 						<Row>
 							<Col lg="12">
-								{getHeading('Distributor')}
+								<PageTitle title={'Distributor'} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
 								<DistributorCard name={this.state.name} requestVaccineModal={this.toggleRequestVaccineModal} scannerModal={this.toggleScannerModal} />
 							</Col>
 							<Col lg="12">
-								{getHeading('Vaccine Inventory')}
+								<PageTitle title={'Vaccine Inventory'} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
 								<VaccineInventory data={this.state.inventory} />
 							</Col>
 						</Row>
@@ -134,11 +119,11 @@ class DistributorView extends React.Component {
 					<Col lg="4">
 						<Row>
 							<Col lg="12">
-								{getHeading('Order History')}
+							<	PageTitle title={'Order History'} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
 								<OrderHistory data={this.state.order_history} />
 							</Col>
 							<Col lg="12">
-								{getHeading('Vaccination History')}
+								<PageTitle title={'Vaccination History'} subtitle="One Tracker" md="12" className="ml-sm-auto mr-sm-auto" />
 								<ScannedHistory data={this.state.distributor_history} />
 							</Col>
 						</Row>

@@ -1,44 +1,10 @@
 import React from 'react';
-import {
-	Card,
-	CardHeader,
-	ListGroup,
-	ListGroupItem,
-	Row,
-	Col,
-	Form,
-	FormInput,
-	Button,
-	Container,
-	Alert
-} from 'shards-react';
-import PageTitle from '../../components/common/PageTitle';
+import { Card, CardHeader, ListGroup, ListGroupItem, Row, Col, Form, FormInput, Button, Container, Alert } from 'shards-react';
 import { Dispatcher, Constants, AuthStore } from "../../flux";
 import { Link } from 'react-router-dom';
 import Typist from 'react-typist';
 
 class LoginView extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			email: null,
-			password: null,
-			redirect: false,
-			alertShow: false,
-			alertType: null,
-			alertMessage: ''
-		};
-		this.loginRequest = this.loginRequest.bind(this);
-		this.onSuccessfulLogin = this.onSuccessfulLogin.bind(this);
-	}
-
-	componentWillMount() {
-		AuthStore.addLoginListener(this.onSuccessfulLogin);
-	}
-	
-	componentWillUnmount() {
-		AuthStore.removeLoginListener(this.onSuccessfulLogin);
-	}
 
 	onSuccessfulLogin() {
 		const role = AuthStore.getRole()
@@ -62,7 +28,9 @@ class LoginView extends React.Component {
 			<Container fluid className="p-4">
 				<Row>
 					<Col lg="6" className="ml-sm-auto mr-sm-auto my-3">
-						<h1><Typist>{'One-Tracker 2020'}</Typist></h1>
+						<h1>
+							<Typist>{'One-Tracker 2020'}</Typist>
+						</h1>
 						<span className="text-muted">
 							Researchers worldwide are working around the clock to find a vaccine against SARS-CoV-2, the virus causing the
 							COVID-19 pandemic. Experts estimate that a fast-tracked vaccine development process could speed a successful
@@ -74,9 +42,6 @@ class LoginView extends React.Component {
 							affordable way for the healthcare organisations like ICMR to support the process.
 						</span>
 					</Col>
-				</Row>
-				<Row noGutters className="page-header py-4">
-					<PageTitle title="One-Tracker" subtitle="Lets get started" md="6" className="ml-sm-auto mr-sm-auto" />
 				</Row>
 				<Row>
 					<Col lg="6" className="ml-sm-auto mr-sm-auto">
@@ -126,6 +91,28 @@ class LoginView extends React.Component {
 				</Row>
 			</Container>
 		);
+	}
+
+	componentWillMount() {
+		AuthStore.addLoginListener(this.onSuccessfulLogin);
+	}
+	
+	componentWillUnmount() {
+		AuthStore.removeLoginListener(this.onSuccessfulLogin);
+	}
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			email: null,
+			password: null,
+			redirect: false,
+			alertShow: false,
+			alertType: null,
+			alertMessage: ''
+		};
+		this.loginRequest = this.loginRequest.bind(this);
+		this.onSuccessfulLogin = this.onSuccessfulLogin.bind(this);
 	}
 }
 
