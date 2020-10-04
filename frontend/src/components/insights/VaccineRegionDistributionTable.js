@@ -31,7 +31,7 @@ class VaccineRegionDistributionTable extends React.Component {
                     </table>
                 </CardBody>
             </Card>
-        )
+        );
     }
 }
 

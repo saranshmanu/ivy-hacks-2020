@@ -2,10 +2,10 @@ import React from 'react';
 import { Card, CardBody, ListGroup, ListGroupItem, Button } from 'shards-react';
 
 const OrderHistory = ({ data }) => (
-	<Card small>
-		<CardBody className="p-3" style={{height: '480px', overflow: 'scroll'}}>
-			<ListGroup small flush className="list-group-small">
-				{(data || []).map((item, idx) => (
+    <Card small>
+        <CardBody className="p-3" style={{height: '480px', overflow: 'scroll'}}>
+            <ListGroup small flush className="list-group-small">
+                {(data || []).map((item, idx) => (
                     <div>
                         <ListGroupItem style={{border: '0px'}} key={idx} className="d-flex pb-0 pt-1">
                             <span className="text-semibold text-fiord-blue">{item.name}</span>
@@ -20,10 +20,10 @@ const OrderHistory = ({ data }) => (
                             </span>
                         </ListGroupItem>
                     </div>
-				))}
-			</ListGroup>
-		</CardBody>
-	</Card>
+                ))}
+            </ListGroup>
+        </CardBody>
+    </Card>
 );
 
 export default OrderHistory;

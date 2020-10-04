@@ -36,10 +36,8 @@
     "start:prod": "PORT=3001 serve -s build",
     "build": "cross-env react-scripts build",
     "test": "PORT=3001 react-scripts test",
-    "eject": "PORT=3001 react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "eject": "PORT=3001 react-scripts eject",
+    "lint": "eslint --fix ."
   },
   "browserslist": [
     ">0.2%",

@@ -17,19 +17,19 @@ import VaccinationHistory from './profile/VaccinationHistory';
 import PageTitle from './PageTitle';
 
 export {
-	DistributorCard,
-	OrderHistory,
-	ScannedHistory,
-	VaccineInventory,
+    DistributorCard,
+    OrderHistory,
+    ScannedHistory,
+    VaccineInventory,
     Scanner,
     VaccineRegionDistributionTable,
     VaccinationTimeline,
     VaccineManufacturer,
-	DailyInsights,
-	MapSection,
+    DailyInsights,
+    MapSection,
     SmallStats,
     NotificationCenter,
     ProfileCard,
     VaccinationHistory,
-	PageTitle
+    PageTitle
 };
